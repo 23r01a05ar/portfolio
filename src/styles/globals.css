@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neo-bg: #FFFDF5;
+  --neo-accent: #FF6B6B;
+  --neo-secondary: #FFD93D;
+  --neo-muted: #C4B5FD;
+  --neo-dark: #0A0A0A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--neo-bg);
+  color: #000;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  overflow-x: hidden;
+}
+
+/* Dark mode */
+.dark body {
+  background-color: #0A0A0A;
+  color: #FFFDF5;
+}
+
+/* Neo-brutalist scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--neo-bg);
+  border-left: 2px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+/* Text stroke utility */
+.text-stroke {
+  -webkit-text-stroke: 2px #000;
+  color: transparent;
+}
+.text-stroke-white {
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+
+/* Grid background */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px);
+}
+
+/* Halftone dots */
+.bg-dots {
+  background-image: radial-gradient(#000 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.bg-dots-light {
+  background-image: radial-gradient(rgba(0,0,0,0.15) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+/* Marquee */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Neo button base */
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #000;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 100ms linear;
+  padding: 12px 24px;
+  position: relative;
+}
+
+.neo-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none !important;
+}
+
+/* Neo card */
+.neo-card {
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0px 0px #000;
+  transition: all 200ms ease-out;
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -4px);
+  box-shadow: 12px 12px 0px 0px #000;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .animate-spin-slow,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-float {
+    animation: none !important;
+  }
+  .neo-btn:active,
+  .neo-card:hover {
+    transform: none;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--neo-accent);
+  color: #000;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
