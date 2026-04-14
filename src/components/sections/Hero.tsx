@@ -144,7 +144,7 @@ function HeroRightPanel() {
         setShowPhoto((prev) => !prev);
         setVisible(true);
       }, 400);
-    }, 10000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
