@@ -120,7 +120,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="absolute bottom-11 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <span className="font-bold text-xs uppercase tracking-widest">Scroll</span>
           <ArrowDown size={20} strokeWidth={3} />
         </div>
@@ -196,7 +196,7 @@ function PhotoPanel() {
           </div>
         ) : (
           <Image
-            src="/PFP.png"
+            src="/Profile.png"
             alt="Kanchumarthi Sai Sri Vallabha"
             fill
             className="object-cover object-top"
