@@ -81,7 +81,7 @@ export default function StoriesSection() {
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar size={12} strokeWidth={3} />
                     <span className="font-bold text-xs uppercase tracking-wider">
-                      {format(new Date(story.created_at), "MMM d, yyyy")}
+                      
                     </span>
                   </div>
                   <h3 className="font-black text-lg uppercase tracking-tight leading-tight group-hover:underline">
