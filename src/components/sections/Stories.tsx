@@ -79,7 +79,7 @@ export default function StoriesSection() {
                 )}
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <Calendar size={12} strokeWidth={3} />
+                    
                     <span className="font-bold text-xs uppercase tracking-wider">
                       
                     </span>
