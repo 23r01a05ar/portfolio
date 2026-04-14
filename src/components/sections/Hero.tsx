@@ -120,7 +120,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <span className="font-bold text-xs uppercase tracking-widest">Scroll</span>
           <ArrowDown size={20} strokeWidth={3} />
         </div>
@@ -180,39 +180,30 @@ function HeroRightPanel() {
 }
 
 function PhotoPanel() {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <div className="flex flex-col items-center p-6">
       {/* Photo frame */}
       <div className="relative w-56 h-56 border-4 border-black shadow-neo-md overflow-hidden bg-neo-muted mb-5">
-        {/* 
-          ── HOW TO ADD YOUR PHOTO ──────────────────────────────────────
-          1. Add your photo to the /public folder as "profile.jpg"
-             (or profile.png / profile.webp)
-          2. Change the src below from "/profile.jpg" to your filename
-          3. The placeholder shows until you add the file
-          ──────────────────────────────────────────────────────────────
-        */}
-        <Image
-          src="/PFP.png"
-          alt="Kanchumarthi Sai Sri Vallabha"
-          fill
-          className="object-cover object-top"
-          onError={(e) => {
-            // Show fallback if image not found
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
-          priority
-        />
-        {/* Fallback placeholder shown until real photo is added */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-neo-muted">
-          <User size={64} strokeWidth={1.5} className="text-black/40" />
-          <span className="font-black text-xs uppercase tracking-widest mt-3 text-black/40">
-            Add profile.jpg
-          </span>
-          <span className="font-bold text-xs text-black/30 mt-1 px-4 text-center">
-            to /public folder
-          </span>
-        </div>
+        {imgError ? (
+          /* Fallback — only shown if image fails to load */
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-neo-muted">
+            <User size={64} strokeWidth={1.5} className="text-black/40" />
+            <span className="font-black text-xs uppercase tracking-widest mt-3 text-black/40">
+              Photo not found
+            </span>
+          </div>
+        ) : (
+          <Image
+            src="/PFP.png"
+            alt="Kanchumarthi Sai Sri Vallabha"
+            fill
+            className="object-cover object-top"
+            onError={() => setImgError(true)}
+            priority
+          />
+        )}
       </div>
 
       {/* Name + title */}
